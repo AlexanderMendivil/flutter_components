@@ -9,6 +9,17 @@ class AppTheme {
     appBarTheme: const AppBarTheme(color: primary, elevation: 10),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(foregroundColor: primary),
+    ),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: primary
+    ), 
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+            backgroundColor: AppTheme.primary,
+            shape: const StadiumBorder(),
+            elevation: 0
+          ),
     )
-    );
+  );
+
 }

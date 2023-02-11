@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/widgets.dart';
+
 class InputsScreen extends StatelessWidget {
    
   const InputsScreen({Key? key}) : super(key: key);
@@ -14,32 +16,15 @@ class InputsScreen extends StatelessWidget {
          child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
-            children: <Widget>[
-              TextFormField(
-                autofocus: false,
-                initialValue: '',
-                textCapitalization: TextCapitalization.words,
-                onChanged: ( value ) {
-                  print(value);
-                },
-                validator: ( value ) {
-                  if( value == null ) return 'Este campo es requerido';
-                  return value.length < 3 ? 'Minimo 3 letras' : null;
-                },
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                decoration: const InputDecoration(
-                  hintText: 'Nombre del usuario',
-                  labelText: 'Nombre',
-                  helperText: 'Solo letras',
-                  counterText: '3 caracteres',
-                  prefixIcon: Icon(Icons.gradient_outlined),
-                  suffixIcon: Icon(Icons.gradient_outlined),
-                  icon: Icon(Icons.admin_panel_settings),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10))
-                  )
-                ),
-              )
+            children: const <Widget>[
+              CustomInputField( labelText: 'Nombre', hintText: 'Nombre del usuario',),
+              SizedBox( height: 30,),
+              CustomInputField( labelText: 'Apellido', hintText: 'Apellido del usuario',),
+              SizedBox( height: 30,),
+              CustomInputField( labelText: 'Correo', hintText: 'Correo del usuario', inputType: TextInputType.emailAddress,),
+              SizedBox( height: 30,),
+              CustomInputField( labelText: 'Contraseña', hintText: 'Contraseña del usuario', obscure: true, ),
+              SizedBox( height: 30,),
             ]),
          ),
       ),

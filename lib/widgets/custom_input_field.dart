@@ -18,7 +18,7 @@ class CustomInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       autofocus: false,
-      initialValue: '',
+      initialValue: null,
       keyboardType: inputType,
       obscureText: obscure,
       textCapitalization: TextCapitalization.words,
@@ -26,7 +26,8 @@ class CustomInputField extends StatelessWidget {
         print(value);
       },
       validator: ( value ) {
-        if( value == null ) return 'Este campo es requerido';
+        print(value.runtimeType);
+        if( value == null || value.isEmpty ) return 'Este campo es requerido';
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration:  InputDecoration(

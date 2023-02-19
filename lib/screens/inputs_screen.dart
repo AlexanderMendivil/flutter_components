@@ -30,15 +30,26 @@ class InputsScreen extends StatelessWidget {
             key: myFormKey,
             child: Column(
               children: <Widget>[
-                const CustomInputField( labelText: 'Nombre', hintText: 'Nombre del usuario',),
+                CustomInputField( labelText: 'Nombre', hintText: 'Nombre del usuario', formProperty: 'first_name', formValues: formValues,),
                 const SizedBox( height: 20,),
-                const CustomInputField( labelText: 'Apellido', hintText: 'Apellido del usuario',),
+                CustomInputField( labelText: 'Apellido', hintText: 'Apellido del usuario', formProperty: 'last_name', formValues: formValues,),
                 const SizedBox( height: 20,),
-                const CustomInputField( labelText: 'Correo', hintText: 'Correo del usuario', inputType: TextInputType.emailAddress,),
+                CustomInputField( labelText: 'Correo', hintText: 'Correo del usuario', inputType: TextInputType.emailAddress, formProperty: 'email', formValues: formValues,),
                 const SizedBox( height: 20,),
-                const CustomInputField( labelText: 'Contraseña', hintText: 'Contraseña del usuario', obscure: true, ),
+                CustomInputField( labelText: 'Contraseña', hintText: 'Contraseña del usuario', obscure: true, formProperty: 'password', formValues: formValues, ),
                 const SizedBox( height: 20,),
           
+
+                DropdownButtonFormField(items: 
+                const [
+                   DropdownMenuItem(value: 'Admin',child: Text("Admin"),),
+                   DropdownMenuItem(value: 'Super user',child: Text("Super user"),),
+                   DropdownMenuItem(value: 'Developer',child: Text("Developer"),)
+                  ],
+                  onChanged: ( value ){
+                    formValues['role'] = value ?? 'Admin';
+                  }),
+
                 ElevatedButton(
                   child: const SizedBox(
                     width: double.infinity,
@@ -48,7 +59,6 @@ class InputsScreen extends StatelessWidget {
                   onPressed: (){
                     FocusScope.of(context).requestFocus(FocusNode());
                     if(!myFormKey.currentState!.validate()){
-                      print(formValues);
                        return;
                        }
                   }, 

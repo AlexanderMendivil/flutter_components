@@ -13,6 +13,8 @@ MenuOption(route: 'card', icon: Icons.card_giftcard, name: 'card', screen: const
 MenuOption(route: 'avatar', icon: Icons.supervised_user_circle_outlined, name: 'avatar', screen: const AvatarScreen()),
 MenuOption(route: 'animated', icon: Icons.animation, name: 'animated', screen: const AnimatedScreen()),
 MenuOption(route: 'Inputs', icon: Icons.input, name: 'Input', screen: const InputsScreen()),
+MenuOption(route: 'Sliders', icon: Icons.sledding, name: 'Sliders', screen: const SliderScreen()),
+MenuOption(route: 'ListView_Builder', icon: Icons.build, name: 'ListView Builder', screen: const ListViewBuilderScreen()),
   ];
 
 
